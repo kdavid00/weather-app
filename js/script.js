@@ -4,11 +4,11 @@ $("#find-City").on("click", function () {
   //  https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&apikey=578ad2cb2ea2be81327aea87f120fe2e
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&apikey=578ad2cb2ea2be81327aea87f120fe2e";
   var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&apikey=578ad2cb2ea2be81327aea87f120fe2e";
-
+  var uvindex = "http://api.openweathermap.org/data/2.5/uvi?appid=578ad2cb2ea2be81327aea87f120fe2e&lat=33.25&lon={lon}"
 
   console.log("below is the city")
   console.log(city)
-
+ 
   $.ajax({
     url: queryURL,
     method: 'GET'
@@ -60,4 +60,11 @@ $("#find-City").on("click", function () {
 
     }
   });
+
+  $.ajax({
+    url: URL,
+    method: 'GET'
+  }).then(function (response) {
+    console.log("uv-index", response)
+})
 })
